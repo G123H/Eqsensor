@@ -24,7 +24,7 @@
                 </value>
                 <next>
                   <block type="oled_drawtext" id="8">
-                    <field name="TEXT">"Far"=</field>
+                    <field name="TEXT">"Far left"=</field>
                     <next>
                       <block type="oled_drawnumber" id="9" inline="true">
                         <value name="NUMBER">
@@ -56,7 +56,7 @@
                             </value>
                             <next>
                               <block type="oled_drawtext" id="16">
-                                <field name="TEXT">"Close"=</field>
+                                <field name="TEXT">"Far right"=</field>
                                 <next>
                                   <block type="oled_drawnumber" id="17" inline="true">
                                     <value name="NUMBER">
@@ -64,18 +64,94 @@
                                         <field name="OP">LT</field>
                                         <value name="A">
                                           <block type="sensor_object" id="19">
-                                            <field name="OBJECT">LEFTFRONT</field>
+                                            <field name="OBJECT">RIGHTFRONT</field>
                                           </block>
                                         </value>
                                         <value name="B">
                                           <block type="math_number" id="20">
-                                            <field name="NUM">40</field>
+                                            <field name="NUM">80</field>
                                           </block>
                                         </value>
                                       </block>
                                     </value>
                                     <next>
-                                      <block type="multimedia_doupdate" id="21"></block>
+                                      <block type="oled_setcursor" id="22" inline="true">
+                                        <value name="STARTX">
+                                          <block type="math_number" id="23">
+                                            <field name="NUM">10</field>
+                                          </block>
+                                        </value>
+                                        <value name="STARTY">
+                                          <block type="math_number" id="24">
+                                            <field name="NUM">30</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="oled_drawtext" id="25">
+                                            <field name="TEXT">" Light far left"=</field>
+                                            <next>
+                                              <block type="oled_drawnumber" id="26" inline="true">
+                                                <value name="NUMBER">
+                                                  <block type="logic_compare" id="27" inline="true">
+                                                    <field name="OP">LT</field>
+                                                    <value name="A">
+                                                      <block type="sensor_light" id="37">
+                                                        <field name="LIGHT">LEFT</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_number" id="29">
+                                                        <field name="NUM">80</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="oled_setcursor" id="38" inline="true">
+                                                    <value name="STARTX">
+                                                      <block type="math_number" id="39">
+                                                        <field name="NUM">10</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="STARTY">
+                                                      <block type="math_number" id="40">
+                                                        <field name="NUM">40</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="oled_drawtext" id="41">
+                                                        <field name="TEXT">" Light far right "=</field>
+                                                        <next>
+                                                          <block type="oled_drawnumber" id="42" inline="true">
+                                                            <value name="NUMBER">
+                                                              <block type="logic_compare" id="43" inline="true">
+                                                                <field name="OP">LT</field>
+                                                                <value name="A">
+                                                                  <block type="sensor_light" id="44">
+                                                                    <field name="LIGHT">RIGHT</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="B">
+                                                                  <block type="math_number" id="45">
+                                                                    <field name="NUM">80</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="multimedia_doupdate" id="21"></block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
                                     </next>
                                   </block>
                                 </next>
